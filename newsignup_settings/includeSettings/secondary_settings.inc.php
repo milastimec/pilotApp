@@ -11,6 +11,8 @@
         $role = $_POST['role'];
         $user=$_SESSION['newuser'];
 
+        //u dont use city anywhere yet...maybe create a <select> form 
+
         if(empty($role)){
             header("location: ../signup_secondary_settings.php?error=emptyRole");
             exit();

@@ -33,13 +33,13 @@ if(isset($_POST['action']) && $_POST['action'] == "emailme"){
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "mila.stimec@gmail.com";
-    $mail->Password   = "Jupit3r2015";
+    $mail->Username   = "pilotapp.userservice@gmail.com";
+    $mail->Password   = "igre1234";
 
     $mail->IsHTML(true);
     $mail->AddAddress($_SESSION['mail'], $_SESSION['imeOsebe']);
 
-    $mail->SetFrom("mila.stimec@gmail.com", "Mila");
+    $mail->SetFrom("pilotapp.userservice@gmail.com", "Admin");
     $mail->Subject = $subject;
     $content = $msg;
     $mail->MsgHTML($content); 

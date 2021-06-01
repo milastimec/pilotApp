@@ -33,6 +33,9 @@
                         session_start(['cookie_lifetime' => 86400,]);
                         $_SESSION['user']= $row['osebaID'];
                         $_SESSION['mail']= $row['mail'];
+                        $_SESSION['imeOsebe'] = $row['ime'];
+                        $_SESSION['priimekOsebe']= $row['priimek'];
+                        $_SESSION['admin'] = $row['admin'];
 
                         header("Location: ../indexuser.php");
                         exit();
