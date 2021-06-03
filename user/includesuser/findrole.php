@@ -39,7 +39,7 @@
  }
 
  function getName($user){
-    require '../../includes/db_handler.inc.php';
+    require '/db_handler.inc.php';
 
     $sql= 'select ime, priimek from oseba where osebaID = "'.$user.'";';
 
@@ -54,4 +54,20 @@
     }
 
  }
- ?>
+
+ function licenca($name){
+     require 'db_handler.inc.php';
+
+     $sql= 'select count(dovoljenjeID) from dovoljenje where naziv = ?;';
+
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, $sql);
+    $stmt->bind_param('s', $name);
+    mysqli_stmt_execute($stmt);
+    $stmt->bind_result($count);
+
+    while($stmt->fetch()){
+        return $count;
+    }
+    
+ }

@@ -1,6 +1,7 @@
 <?php
     session_start();
     require 'db_handler.inc.php';
+    require 'findrole.php';
 
     if(!isset($_SESSION['user'])){
         header("Location: ../../indexuser.php");
@@ -16,13 +17,17 @@
             header("Location: ../adminlicense.php?error=lifetimeempty");
             exit();
         }
-        if(empty($_POST["lname"])){ //not working
+        if(empty($_POST["lname"])){
             header("Location: ../adminlicense.php?error=lnameempty");
             exit();
         }
         else{
             $lifetime = $_POST['last'];
             $name=$_POST["lname"];
+        }
+        if(licenca($_POST['lname']) > 0){
+            header("Location: ../adminlicense.php?error=alreadyexists");
+            exit();
         }
 
         $sql ="insert into dovoljenje (naziv, rok_trajanja) values (?, ?);";
