@@ -10,10 +10,14 @@
         header("Location: ../../indexuser.php");
         exit();
     }
+
     if(isset($_POST["newLic"])){
-        if(empty($_POST['last']>59) || empty($_POST["lname"])){ //not working
-            
-            header("Location: ../adminlicense.php?error=error");
+        if(empty($_POST['last'])){
+            header("Location: ../adminlicense.php?error=lifetimeempty");
+            exit();
+        }
+        if(empty($_POST["lname"])){ //not working
+            header("Location: ../adminlicense.php?error=lnameempty");
             exit();
         }
         else{
@@ -27,6 +31,6 @@
         $stmt->bind_param('si', $name, $lifetime);
         $stmt->execute();
 
-        header("Location: ../../indexuser.php");
+        header("Location: ../../indexuser.php?success");
         exit();   
     }

@@ -15,7 +15,7 @@
     <body>
         <form action="includesuser\adminlicense.inc.php" method= "POST">
             <label>The name of the License </label>
-            <input type="text" name= "lName"><br>
+            <input type="text" name= "lname"><br>
             <label>Duration of License (in days)</label>
             <input type="number" name="last" min="60"><br>
             <input type="submit" name="newLic">
