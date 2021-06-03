@@ -58,7 +58,7 @@
  function licenca($name){
      require 'db_handler.inc.php';
 
-     $sql= 'select count(dovoljenjeID) from dovoljenje where naziv = ?;';
+     $sql= 'select count(dovoljenjeID) from dovoljenje where lower(naziv) = lower(?);';
 
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $sql);
