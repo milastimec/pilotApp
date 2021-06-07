@@ -18,7 +18,7 @@ if(isset($_POST['action']) && $_POST['action'] == "emailme"){
     $licenseN= license($_POST['licenseid']);
 
     $msg = "Hello ".$person[0]." ".$person[1]."!.\n
-    You are getting this email to notify you that your license ".$license. " will expire soon. \n
+    You are getting this email to notify you that your license ".$licenseN. " will expire soon. \n
     Please resolve this as soon as possible.\n
     Best regards, \n PilotApp Team";
 
@@ -51,7 +51,7 @@ if(isset($_POST['action']) && $_POST['action'] == "emailme"){
     } else {
         echo "Message sent!";
     } 
-    header("location: indexuser.php");
+   header("location: indexuser.php");
 }
 
 function name($user){
