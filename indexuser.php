@@ -51,7 +51,7 @@
             .date('d/m/Y', $pridobitev).'</td><td>'.$date->format('d/m/Y').
             '</td> <td>'.$difference->days.'
             </td><td><form method = "POST" action=""> <input type= "submit" value= "email me!">
-            <input hidden name="licenseid" value="'.$dovoljenjeID.'"
+            <input hidden name="licenseid" value="'.$dovoljenjeID.'">
             <input hidden name="userid" value="'.$osebaID.'">
             <input hidden name= "action" value="emailme" ></form></td></tr>'; 
         }

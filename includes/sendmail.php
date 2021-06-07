@@ -12,13 +12,15 @@ if(!isset($_SESSION)){
     require 'C:/xampp/htdocs/pilotapp/includes/PHPMailer-master/PHPMailer-master/src/SMTP.php';
 
 if(isset($_POST['action']) && $_POST['action'] == "emailme"){
+    //function to get name and license
+    $person = array();
+    $person = name($_POST['userid']);
+    $licenseN= license($_POST['licenseid']);
 
-    $mailfrom = $_SESSION['mail'];
-    //add if the person is not the same send from a different mail to another mail!!!
-    $msg = "Hello ".$_SESSION['imeOsebe']." ".$_SESSION['priimekOsebe']."!.\n
-    You are getting this email to notify you that your license ".$_SESSION['imeDovoljenja']. " will expire soon. \n
+    $msg = "Hello ".$person[0]." ".$person[1]."!.\n
+    You are getting this email to notify you that your license ".$license. " will expire soon. \n
     Please resolve this as soon as possible.\n
-    Best regards, \n".$_SESSION['imeOsebe'];
+    Best regards, \n PilotApp Team";
 
     $msg = wordwrap($msg,70);
     $subject= "Your License will expire soon";
@@ -37,7 +39,7 @@ if(isset($_POST['action']) && $_POST['action'] == "emailme"){
     $mail->Password   = "igre1234";
 
     $mail->IsHTML(true);
-    $mail->AddAddress($_SESSION['mail'], $_SESSION['imeOsebe']);
+    $mail->AddAddress($person[2], $person[0]);
 
     $mail->SetFrom("pilotapp.userservice@gmail.com", "Admin");
     $mail->Subject = $subject;
@@ -50,6 +52,35 @@ if(isset($_POST['action']) && $_POST['action'] == "emailme"){
         echo "Message sent!";
     } 
     header("location: indexuser.php");
+}
+
+function name($user){
+    require 'db_handler.inc.php';
+
+    $sql= "select ime, priimek, mail from oseba where osebaID = '".$user."';";
+
+    $stmt = mysqli_prepare($conn, $sql) or die();
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $ime, $priimek, $mail);
+
+    while($stmt->fetch()){
+        $row=array($ime, $priimek, $mail);
+        return $row;
+    }
+}
+
+function license($id){
+    require 'db_handler.inc.php';
+
+    $sql= "select naziv from dovoljenje where dovoljenjeID= '".$id."';";
+
+    $stmt = mysqli_prepare($conn, $sql) or die();
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $license);
+
+    while($stmt->fetch()){
+        return $license;
+    }
 }
 
     

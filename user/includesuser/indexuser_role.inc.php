@@ -53,7 +53,7 @@ function display($user, $company, $role){
     $stmt = mysqli_prepare($conn, $sql) or die();
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $osebaID, $dovoljenjeID, $pridobitev);
-     $table = array();
+    $table = array();
 
     while($stmt->fetch()){
         //ime dovoljenja
