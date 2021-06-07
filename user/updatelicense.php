@@ -61,8 +61,8 @@
             <input type= "submit" value= "delete" name= "delete"></form></td>
             
             <td> <form action= "includesuser/updatelicense.inc.php" method = "POST"> <input type= "date" name= "newDate">
-            <input type="hidden" value="'.$row[1].'" name="userid">
-            <input type="hidden" value="'.$row[0].'" name="licenseID"></td><td>
+            <input type="hidden" value="'.$row[6].'" name="user">
+            <input type="hidden" value="'.$row[5].'" name="licenseID"></td><td>
              <input type= "submit" name = "update" value= "Update" ></form></td></tr>'; 
         }
     
