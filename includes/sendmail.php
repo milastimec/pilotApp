@@ -15,7 +15,7 @@ if(isset($_POST['action']) && $_POST['action'] == "emailme"){
 
     $mailfrom = $_SESSION['mail'];
     //add if the person is not the same send from a different mail to another mail!!!
-    $msg = "Hello".$_SESSION['imeOsebe']." ".$_SESSION['priimekOsebe']."!.\n
+    $msg = "Hello ".$_SESSION['imeOsebe']." ".$_SESSION['priimekOsebe']."!.\n
     You are getting this email to notify you that your license ".$_SESSION['imeDovoljenja']. " will expire soon. \n
     Please resolve this as soon as possible.\n
     Best regards, \n".$_SESSION['imeOsebe'];

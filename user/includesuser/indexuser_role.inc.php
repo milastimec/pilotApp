@@ -56,6 +56,7 @@ function display($user, $company, $role){
      $table = array();
 
     while($stmt->fetch()){
+        //ime dovoljenja
         $dovoljenje = queryuser_user($dovoljenjeID);
         
         $_SESSION['imeDovoljenja']= $dovoljenje;
@@ -69,7 +70,7 @@ function display($user, $company, $role){
 
         $difference = date_diff($date, $currentdate);
 
-        $row = array( $dovoljenje, $ime, $pridobitev, $date, $difference);
+        $row = array( $dovoljenje, $ime, $pridobitev, $date, $difference, $dovoljenjeID, $osebaID);
         array_push($_SESSION['table'],$row);
     }
  }

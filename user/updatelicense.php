@@ -48,18 +48,20 @@
             $ime = $row[1];
             $dovoljenje = $row[0];
             $pridobitev = $row[2];
+            $dovoljenjeID = $row[5];
+            $osebaID = $row[6];
 
             echo '<tr> <td>'.$dovoljenje.
             '</td><td>'.$ime.'</td><td>'
             .date('d/m/Y', $pridobitev).'</td><td>
             <form action="includesuser/delete.inc.php" method= "POST" id="delete">
-            <input type="hidden" value="'.$row[0].'" name="user_id">
-            <input type="hidden" value="'.$row[1].'" name="licenseID">
+            <input hidden name="licenseid" value="'.$dovoljenjeID.'">
+            <input hidden name="userid" value="'.$osebaID.'">
             <input type="hidden" value="'.$pridobitev.'" name="date">
-            <input type= "submit" value= "delete from list"></form></td>
+            <input type= "submit" value= "delete" name= "delete"></form></td>
             
             <td> <form action= "includesuser/updatelicense.inc.php" method = "POST"> <input type= "date" name= "newDate">
-            <input type="hidden" value="'.$row[1].'" name="user">
+            <input type="hidden" value="'.$row[1].'" name="userid">
             <input type="hidden" value="'.$row[0].'" name="licenseID"></td><td>
              <input type= "submit" name = "update" value= "Update" ></form></td></tr>'; 
         }

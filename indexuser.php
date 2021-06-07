@@ -43,12 +43,17 @@
             $pridobitev = $row[2];
             $date = $row[3];
             $difference = $row[4];
+            $dovoljenjeID = $row[5];
+            $osebaID = $row[6];
 
             echo '<tr> <td>'.$dovoljenje.
             '</td><td>'.$ime.'</td><td>'
             .date('d/m/Y', $pridobitev).'</td><td>'.$date->format('d/m/Y').
             '</td> <td>'.$difference->days.'
-            </td><td><form method = "POST" action=""> <input type= "submit" value= "email me!"><input hidden name= "action" value="emailme" ></form></td></tr>'; 
+            </td><td><form method = "POST" action=""> <input type= "submit" value= "email me!">
+            <input hidden name="licenseid" value="'.$dovoljenjeID.'"
+            <input hidden name="userid" value="'.$osebaID.'">
+            <input hidden name= "action" value="emailme" ></form></td></tr>'; 
         }
     
     echo '</table></div></div>';
