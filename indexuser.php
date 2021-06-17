@@ -50,16 +50,16 @@
             '</td><td>'.$ime.'</td><td>'
             .date('d/m/Y', $pridobitev).'</td><td>'.$date->format('d/m/Y').
             '</td> <td>'.$difference->days.'
-            </td><td><form method = "POST" action=""> <input type= "submit" value= "email me!">
+            </td><td><form method = "POST" action=""> <input class="btn btn-secondary mb-1" type= "submit" value= "email me!">
             <input hidden name="licenseid" value="'.$dovoljenjeID.'">
             <input hidden name="userid" value="'.$osebaID.'">
             <input hidden name= "action" value="emailme" ></form></td></tr>'; 
         }
     
-    echo '</table></div></div>';
+    echo '</table></div></div><div>';
 
-    echo '<form action= "user/updatelicense.php"><button style= "float: right; margin-right: 300px;"> Update </button></form>';
-    echo '<form action= "user/includesuser/addlicense.php"><button style= "float: right; margin-right: 50px;">Add License </button></form>';
+    echo '<form action= "user/updatelicense.php"><button class="btn btn-primary mb-2" style= "float: right; margin-right: 150px;"> Update </button></form>';
+    echo '<form action= "user/includesuser/addlicense.php"><button class="btn btn-primary mb-2" style= "float: right; margin-right: 30px;">Add License </button></form></div>';
 
     function tablearray($a, $b){
         if($a[4]->days == $b[4]->days)

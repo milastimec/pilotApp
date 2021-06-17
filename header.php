@@ -16,21 +16,21 @@
         <meta name="HandheldFriendly" content="true">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     </head>
-    <body style= "    margin: 0;
+    <body style= "margin: 0;
     display: flex;
     min-height: 100vh;
     flex-direction: column;">
         <header style="width=80%;">
             <nav class = "row container" style=" background-color: #0d6efd; color:white; margin: auto;">
 
-                <ul style= "list-style-type: none; margin: 5px; padding: 10px; padding-top: 20px; overflow: hidden;  position: absolute;">
-                    <div style="float: left; display: block; padding: 8px; text-decoration: none;"><li><a href="#" style="color:white;">Home</a></li> </div>
-                    <div style="float: left; display: block; padding: 8px; text-decoration: none;"><li><a href="#" style="color:white;">Q&A</a></li> </div>
-                    <div style="float: left; display: block; padding: 8px; text-decoration: none;"> <li><a href="#" style="color:white;">About us</a></li> </div>
-                    <div style="float: left; display: block; padding: 8px; text-decoration: none;"><li><a href="#" style="color:white;">Contact</a></li> </div>
+                <ul style= "list-style-type: none; padding-top: 20px;  margin-top: 5px; display: block; overflow: hidden; padding: 8px; float: left;">
+                    <div style="float: left; margin-right: 20px;display: block; text-decoration: none;"><li><a href="index.php" style="color:white;">Home</a></li> </div>
+                    <div style="float: left; margin-right: 20px;display: block; text-decoration: none;"><li><a href="#" style="color:white;">Q&A</a></li> </div>
+                    <div style="float: left; margin-right: 20px;display: block; text-decoration: none;"> <li><a href="#" style="color:white;">About us</a></li> </div>
+                    <div style="float: left; margin-right: 20px;display: block; text-decoration: none;"><li><a href="#" style="color:white;">Contact</a></li> </div>
                 </ul>
                 
-                <div class="float-right" style="margin-left: 50%; margin-top: 5px; position: relative; display: block; overflow: hidden; padding: 8px;">
+                <div style="float: right; margin-top: 5px; position: relative; display: block; overflow: hidden; padding: 8px;">
                     <?php
                         if(isset($_SESSION['user']) || isset($_SESSION['newuser'])){
                             echo '<form action="includes/logout.inc.php" method="post"> <!--.inc - only executive files, you cannot see them-->
